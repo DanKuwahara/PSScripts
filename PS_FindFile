@@ -1,0 +1,10 @@
+$searchPath = "C:\Windows\ccmcache"
+$fileName = "PerkinElmer_ChemOffice_Suite_22.2.0_x64.msi"
+$result = Get-ChildItem -Path $searchPath -Recurse -Filter $fileName
+if ($result -ne $null) {
+    $filePath = $result.FullName
+    Write-Host "File '$fileName' was found at '$filePath'"
+} else {
+    Write-Host "File '$fileName' was not found in the directory tree '$searchPath'"
+}
+$filePath
